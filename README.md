@@ -1,5 +1,5 @@
 # React starter kit with mobx and stylus
-##Quick start
+## Quick start
 ### Get the kit
 ```
 $ git clone https://github.com/parmactep/react-mobx-stylus-boilerplate && cd react-mobx-stylus-boilerplate
