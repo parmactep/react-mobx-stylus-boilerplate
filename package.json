@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Quick start with react, mobx and stylus",
   "scripts": {
-    "dev": "webpack-dev-server --config webpack.dev.js --inline --quiet --hot --open"
+    "dev": "webpack-dev-server --config webpack.dev.js --inline --quiet --hot --open",
+    "build": "webpack --config webpack.build.js"
   },
   "keywords": [
     "react",
