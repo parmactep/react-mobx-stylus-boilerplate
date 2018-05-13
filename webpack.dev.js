@@ -58,5 +58,6 @@ module.exports = {
 		new webpack.NamedModulesPlugin(),
 		new FriendlyErrorsWebpackPlugin()
 	],
+	mode: 'development',
 	devtool: 'cheap-module-eval-source-map'
 };

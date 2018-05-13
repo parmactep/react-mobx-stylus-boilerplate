@@ -58,5 +58,6 @@ module.exports = {
 		new ExtractTextPlugin('app.css'),
 		new webpack.NamedModulesPlugin(),
 		new FriendlyErrorsWebpackPlugin()
-	]
+	],
+	mode: 'production'
 };
