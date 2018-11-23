@@ -6,22 +6,20 @@ const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 
 const config = {
 	src:    path.resolve(__dirname, 'src'),
-	entry:  'index.jsx',
-	dist:   path.resolve(__dirname, 'web'),
-	output: 'app.js'
+	dist:   path.resolve(__dirname, 'web')
 };
 
 module.exports = {
 	resolve: {
 		modules: [config.src, 'node_modules'],
-		extensions: [".js", ".jsx", ".css", ".styl"]
+		extensions: ['.js', '.jsx', '.css', '.styl']
 	},
 	entry: [
-		path.resolve(config.src, config.entry)
+		path.resolve(config.src, 'index.jsx')
 	],
 	output: {
 		path: config.dist,
-		filename: config.output,
+		filename: 'index.js',
 		publicPath: '/'
 	},
 	module: {
@@ -47,15 +45,10 @@ module.exports = {
 		]
 	},
 	plugins: [
-		new webpack.ProvidePlugin({
-			'React':        'react',
-			'ReactDOM':     'react-dom',
-			'PropTypes':    'prop-types'
-		}),
 		new HtmlWebpackPlugin({
 			template: path.resolve(config.src, 'index.html')
 		}),
-		new ExtractTextPlugin('app.css'),
+		new ExtractTextPlugin('index.css'),
 		new webpack.NamedModulesPlugin(),
 		new FriendlyErrorsWebpackPlugin()
 	],

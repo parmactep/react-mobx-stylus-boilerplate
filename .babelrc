@@ -1,8 +1,18 @@
 {
 	"presets": [
-		"env",
-		"stage-0",
-		"react"
+		"@babel/preset-env",
+		"@babel/preset-react",
+		"@babel/flow"
 	],
-	"plugins": ["transform-decorators-legacy"]
+	"plugins": [
+		["@babel/plugin-proposal-decorators", { "legacy": true }],
+		["@babel/plugin-proposal-class-properties", { "loose": true }],
+		"@babel/plugin-proposal-export-default-from",
+		"@babel/plugin-proposal-object-rest-spread"
+	],
+	"env": {
+		"development": {
+			"plugins": ["react-hot-loader/babel"]
+		}
+	}
 }
