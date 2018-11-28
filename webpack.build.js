@@ -32,7 +32,8 @@ module.exports = {
 			{
 				test: /\.styl$/,
 				use: ExtractTextPlugin.extract({
-					use: ['style-loader', 'css-loader',
+					fallback: 'style-loader',
+					use: ['css-loader',
 						{
 							loader: 'stylus-loader',
 							options: {
