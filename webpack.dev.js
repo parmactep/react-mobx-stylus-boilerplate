@@ -30,8 +30,7 @@ module.exports = {
 			},
 			{
 				test: /\.styl$/,
-				fallback: 'style-loader',
-				use: ['css-loader',
+				use: ['css-loader', 'style-loader',
 					{
 						loader: 'stylus-loader',
 						options: {
