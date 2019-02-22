@@ -42,7 +42,7 @@ module.exports = (env, argv) => {
 							{
 								loader: 'stylus-loader',
 								options: {
-									use: []
+									use: [],
 									include: PATH.src,
 								}
 							}
@@ -52,7 +52,7 @@ module.exports = (env, argv) => {
 			]
 		},
 		plugins: [
-			new webpack.DefinePlugin({})
+			new webpack.DefinePlugin({}),
 			new ExtractTextPlugin({
 				filename: 'index.css',
 				disable: argv.mode === 'development',
