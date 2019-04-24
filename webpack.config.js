@@ -1,6 +1,6 @@
 const webpack = require('webpack')
 const path = require('path');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 
@@ -36,26 +36,29 @@ module.exports = (env, argv) => {
 				},
 				{
 					test: /\.styl$/,
-					use: ExtractTextPlugin.extract({
-						fallback: 'style-loader',
-						use: ['css-loader',
-							{
-								loader: 'stylus-loader',
-								options: {
-									use: [],
-									include: PATH.src,
-								}
+					use: [
+						{
+							loader: MiniCssExtractPlugin.loader,
+							options: {
+								hmr: argv.mode === 'development',
 							}
-						]
-					})
+						},
+						'css-loader',
+						{
+							loader: 'stylus-loader',
+							options: {
+								use: [],
+								include: PATH.src
+							}
+						}
+					]
 				}
 			]
 		},
 		plugins: [
 			new webpack.DefinePlugin({}),
-			new ExtractTextPlugin({
+			new MiniCssExtractPlugin({
 				filename: 'index.css',
-				disable: argv.mode === 'development',
 			}),
 			new HtmlWebpackPlugin({
 				template: path.resolve(PATH.src, 'index.html')
