@@ -63,6 +63,7 @@ module.exports = (env, argv) => {
 			new webpack.NamedModulesPlugin(),
 			new FriendlyErrorsWebpackPlugin()
 		],
+		mode: argv.mode,
 		devtool: (argv.mode === 'development') ? 'cheap-module-eval-source-map' : false
 	}
 };
