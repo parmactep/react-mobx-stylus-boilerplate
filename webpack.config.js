@@ -13,7 +13,11 @@ module.exports = (env, argv) => {
 	return {
 		resolve: {
 			modules: [PATH.src, 'node_modules'],
-			extensions: ['.js', '.jsx', '.css', '.styl']
+			extensions: ['.js', '.jsx', '.css', '.styl'],
+			symlinks: false,
+			alias: {
+				'react-dom': '@hot-loader/react-dom'
+			}
 		},
 		entry: [
 			path.resolve(PATH.src, 'index.jsx')
